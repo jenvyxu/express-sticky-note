@@ -20,12 +20,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 //请求的是静态文件，那么请求会被拦截，不会经过路由来处理
-//所以/stylesheets/style.css请求下面的代码不会被路由处理
-app.use('/stylesheets/style.css',function(req,res){
-
-	console.log('get style.css.....')
-	res.send('get style.css.....')
-})
+//所以/stylesheets/style.css请求下面的代码不会被路由处
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
