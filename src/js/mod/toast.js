@@ -22,16 +22,12 @@ toast.prototype={
 				})
 			},self.dimissTime)
 		})
-
 	}
 }
 
 function Toast(msg,time){
 	return new toast(msg,time)
 }
-window.Toast=Toast
-Toast('hello')
-
 module.exports.Toast=Toast
 
 
