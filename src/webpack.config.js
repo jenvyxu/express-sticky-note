@@ -6,7 +6,8 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.join(__dirname, '../public/js')
-  },
+	},
+	devtool: 'source-map',
   resolve:{
   	alias:{
   		jquery: path.join(__dirname,"js/lib/jquery-3.3.1.min.js"),
@@ -18,7 +19,6 @@ module.exports = {
    		new webpack.ProvidePlugin({
    			$:"jquery"
    		})
-
   ],
   module:{
   	rules:[
