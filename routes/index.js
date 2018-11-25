@@ -3,8 +3,22 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var loginData
+  if(req.session.user){
+    loginData={
+      isLogin:true,
+      user:{
+        avatar:req.session.user.avatar,
+        username:req.session.user.username
+      }
+    }
+  }else{
+    loginData={
+      isLogin:false
+    }
+  }
 	console.log(req.query)
-  res.render('index', { title: 'Express便利贴' });
+  res.render('index', loginData);
 });
 
 module.exports = router;
