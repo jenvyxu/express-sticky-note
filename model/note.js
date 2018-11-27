@@ -24,9 +24,13 @@ sequelize
     text: {
       type: Sequelize.STRING
     },
+    uid: {
+      type: Sequelize.STRING
+    },
     //不需要ID，因为会自动给ID
   });
-
+  //存在数据库那么就把他删除掉
+Note.sync({force:true})
 module.exports.Note=Note
 
 
