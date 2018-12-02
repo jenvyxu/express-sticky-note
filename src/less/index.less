@@ -1,6 +1,7 @@
 html,body{
     margin: 0;
-    height: 100%;
+    min-height: 100%;
+    min-width: 1000px;
   }
   ul,li{
     margin: 0;
@@ -12,40 +13,74 @@ html,body{
   }
   a{
     text-decoration: none;
-    color: #fff;
+    color: white;
   }
-  
+  .icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
   
   #header {
-    height: 30px;
-    font-size: 12px;
-  
+    font-size: 14px;
+    background: #333333;
+    color: white;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .webTitle{
+      font-size: 20px;
+      margin: 20px 100px;
+      font-weight: bolder;
+    }
+    .icon {
+      width: 1.8em; height: 1.8em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+      margin-right: 10px;
+   }
     a {
-      display: block;
-      font-size: 12px;
-      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
     }
     
     .user-area {
-      padding-right: 16px;
-      float: right;
+      margin-right: 100px;
+      border-radius: 20px;
+      border: 1px solid white;
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+
   
       li {
-        float: left;
-        margin-left: 5px;
-  
         span {
-          color: #fff;
+          color: white;
           display: block;
-          margin-top: 6px;
         }
       }
-  
+  li:nth-child(1){
+    display: flex;
+    align-items: center;
+    margin-right: 6px;
+
+  }
       img {
-        height: 18px;
-        margin-top: 5px;
+        height: 24px;
         border-radius: 50%;
       }
+    }
+    li:nth-child(2){
+      border-right: 2px solid white;
+      padding: 0 10px 0 6px;
+
+    }
+    li:nth-child(3){
+      padding-left: 10px;
     }
   
     .setting{
@@ -53,23 +88,27 @@ html,body{
       margin-left: 9px;
       display: none;
     }
-    .add-note{
-      float: left;
-      margin-left: 16px;
-      border: 1px solid #fff;
-      border-radius: 4px;
-      padding: 2px 4px;
-    }
+
     .login{
       float: right;
-      margin-left: 16px;
     }
   
   
   }
   
-  
-  
+.add-note{
+  position: absolute;
+  bottom: 100px;
+  right: 25px;
+  .icon{
+    width: 2em; height: 2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+
+}
+
   #content{
     position: relative;
     height: -webkit-calc(100% - 30px);
@@ -95,7 +134,7 @@ html,body{
   }
   
   .stars {
-    background:#000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
+    background:#fff url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
     z-index:-2;
   }
   

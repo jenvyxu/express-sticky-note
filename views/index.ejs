@@ -3,25 +3,37 @@
   <head>
     <meta charset="utf-8">
     <meta property="qc:admins" content="4562636714562571563145" />
-    <title>便利贴</title>
+    <title>Express便利贴</title>
     <link rel="stylesheet" href="/css/index.css">
+    <script src="//at.alicdn.com/t/font_945778_3xd2wclhl8r.js"></script>
   </head>
   <body>
     <div id="header">
-      <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span> 添加</a>
+      <a class="webTitle" href="/">Express 便签</a>
+      
       <ul class="user-area">
        <% if (isLogin){ %>
-          <li><img src="<%= user.avatar %>" alt=""></li>
-          <li><span title="<%= user.username %>"><%= user.username %></span></li>
-          <li><span class="line"> | </span> </li>
+          <li class="avatar"><img src="<%= user.avatar %>" alt=""></li>
+          <li class="username"><span title="<%= user.username %>"><%= user.username %></span></li>
           <li><a class="logout" href="/auth/logout">注销</a></li>
         <%} else { %>
-          <li><a class="login" title="GitHub登录" href="/auth/github"> GitHub登录</a>
+          <li>
+            <a class="login" title="GitHub登录" href="/auth/github"> 
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-github"></use>
+            </svg>
+            <span>Github登录</span>
+            </a>
           </li>
         <% } %>
       </ul>
 
     </div>
+    <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span> 
+      <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-add1"></use>
+      </svg>
+    </a>
     <div id="content">
 
     </div>
