@@ -8,6 +8,11 @@ module.exports = {
     path: path.join(__dirname, '../public/js')
 	},
 	devtool: 'source-map',
+	watch:'true',
+	watchOptions: {
+    aggregateTimeout: 300,
+		ignored: '../node_modules/',
+  },
   resolve:{
   	alias:{
   		jquery: path.join(__dirname,"js/lib/jquery-3.3.1.min.js"),
