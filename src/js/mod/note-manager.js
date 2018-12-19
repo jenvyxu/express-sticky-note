@@ -1,18 +1,19 @@
 var Toast=require('./toast.js').Toast
 var Note=require('./note.js').Note
 var Event=require('mod/event.js')
-
 var NoteManager=(function(){
-
     function load(){
         $.get('/api/notes')
         .done(function(ret){
+            console.log('ret')
+            console.log(ret)
             if(ret.status==0){
-                $.each(ret.data,function(idx,article){
+                $.each(ret.data,function(idx,note){
                     new Note({
-                        id: article.id,
-                        context:article.text,
-                        username:article.username
+                        id: note.id,
+                        context:note.text,
+                        username:note.username,
+                        color:note.color,
                     })
                 })
                 Event.fire('waterfall')
@@ -24,8 +25,8 @@ var NoteManager=(function(){
             Toast('网络异常')
         })
     }
-    function add(){
-        new Note()
+    function add(data){
+        new Note(data)
     }
     return {
         load:load,

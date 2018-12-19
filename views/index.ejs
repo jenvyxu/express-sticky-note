@@ -4,13 +4,11 @@
     <meta charset="utf-8">
     <meta property="qc:admins" content="4562636714562571563145" />
     <title>Express便利贴</title>
-    <link rel="stylesheet" href="/css/index.css">
-    <script src="//at.alicdn.com/t/font_945778_3xd2wclhl8r.js"></script>
+    <script src="//at.alicdn.com/t/font_945778_kbjg382l0d.js"></script>
   </head>
   <body>
     <div id="header">
-      <a class="webTitle" href="/">Express 便 签</a>
-      
+      <a class="webTitle" href="/">Express 便 签</a> 
       <ul class="user-area">
        <% if (isLogin){ %>
           <li class="avatar"><img src="<%= user.avatar %>" alt=""></li>
@@ -34,11 +32,34 @@
           <use xlink:href="#icon-add1"></use>
       </svg>
     </a>
-    <div id="content">
-
+    <div class="contentWrapper">
+        <div id="content"></div>
     </div>
-
-    <div class="stars"></div>
+    <div class="mask">
+      <div class="mask-wrapper">
+       <div class="mask-header">
+        <h1>新便签</h1> 
+        <span class="exit">      
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-delete"></use>
+          </svg>
+        </span>
+        </div>
+       <div class="mask-content" contenteditable="true"></div>
+       <div class="mask-footer">
+        <ul class="colors">
+          <li class="color color1"></li>
+          <li class="color color2"></li>
+          <li class="color color3"></li>
+          <li class="color color4"></li>
+          <li class="color color5"></li>
+          <li class="color color6"></li>
+        </ul>
+        <div class="confirm">确认</div>
+       </div>       
+       </div>
+    </div>
+    
     <script src="/js/index.js"></script>
 <!--     <div class="twinkling"></div> -->
   </body>

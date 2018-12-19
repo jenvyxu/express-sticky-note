@@ -2,6 +2,7 @@ html,body{
     margin: 0;
     min-height: 100%;
     min-width: 1000px;
+    background: #CBCCCB;
   }
   ul,li{
     margin: 0;
@@ -21,28 +22,109 @@ html,body{
     fill: currentColor;
     overflow: hidden;
  }
-  
+ .mask{
+    display: none;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    justify-content: center;
+    align-items: center;
+    .mask-wrapper{
+      background: #FEFFFE;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 12px;
+      .mask-header{
+        position: relative;
+        text-align: center;
+        h1{
+          margin: 20px auto;
+          font-size: 20px;
+        }
+        .exit{
+          position: absolute;
+          top: 8px;
+          right: 0px;
+          display: flex;
+          background: red;
+          border-radius: 50%;
+          transition: all .3s;
+          &:hover{
+            
+          }
+          .icon{
+            width: 16px;
+            height: 16px;
+          }
+        }
+        
+      }
+      .mask-content{
+        border-radius: 4px;
+        width: 350px;
+        height: 240px;
+        background: #eeefee;
+        outline: none;
+        padding: 10px;
+        font-size: 16px;
+      }
+      .mask-footer{
+        margin: 10px 0 20px 0;
+        display: flex;
+        justify-content: space-between;
+        .colors{
+          list-style: none;
+          display: flex;
+          .color{
+            width: 20px;
+            height: 20px;
+            margin: 4px;
+          }
+          .color1{
+            background: #D92626;           
+          }
+          .color2{
+            background: #0CB7B4;
+          }
+          .color3{ 
+            background: #FFE332;
+          }          
+          .color4{
+            background:#6FCC42 ;
+          }          
+          .color5{
+            background: #FC8F11;
+          }
+          .color6{
+            background:#5591d2;
+          }
+        }
+        .confirm{
+          font-size: 16px;
+          padding: 5px 20px;
+          background: #CBCCCB;
+          border-radius: 5px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+ 
   #header {
     position: relative;
     font-size: 14px;
-    background:#FEFFFE;
+    background:#F9666D;
     color: white;
-    margin: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    &:after{
-      position: absolute;
-      bottom: 0;
-      content:'';
-      display: block;
-      width: 100%;
-      height: 10px;
-      border-bottom: 1px solid #EEEFEE;
-      box-shadow:0 2px 10px #EEEFEE; 
-
-    }
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     .webTitle{
       font-size: 20px;
       margin: 20px 100px;
@@ -78,17 +160,17 @@ html,body{
     display: flex;
     align-items: center;
     margin-right: 10px;
-
   }
       img {
         height: 28px;
         border-radius: 50%;
-        box-shadow: 0 0 5px 2px #EEEFEE;
+      
       }
     }
     li:nth-child(2){
       border-right: 2px solid black;
       padding: 0 10px 0 6px;
+      
 
     }
     li:nth-child(3){
@@ -110,48 +192,22 @@ html,body{
   
 .add-note{
   position: absolute;
-  bottom: 100px;
-  right: 25px;
+  top: 53px;
+  right: 80px;
   .icon{
     width: 2em; height: 2em;
     vertical-align: -0.15em;
-    fill: currentColor;
+    fill: red;
     overflow: hidden;
   }
 
 }
+.contentWrapper{
 
+}
   #content{
+    margin: 20px 50px;
     position: relative;
     height: -webkit-calc(100% - 30px);
-    height: calc(100% - 30px);
-  }
-  
-  
-  @keyframes move-twink-back {
-      from {background-position:0 0;}
-      to {background-position:-10000px 5000px;}
-  }
-  
-  
-  .stars, .twinkling{
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    width:100%;
-    height:100%;
-    display:block;
-  }
-  
-  .stars {
-    background:#fff url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
-    z-index:-2;
-  }
-  
-  .twinkling{
-    background:transparent url(http://7xpvnv.com2.z0.glb.qiniucdn.com/493b97e6-c499-4b41-a26b-8942873615b0.png) repeat top center;
-    z-index:-1;
-    animation:move-twink-back 200s linear infinite;
+    height: calc(100vh);
   }
