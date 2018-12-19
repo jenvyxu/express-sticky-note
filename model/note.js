@@ -27,6 +27,9 @@ sequelize
     uid: {
       type: Sequelize.STRING
     },
+    color: {
+      type: Sequelize.STRING
+    },
     //不需要ID，因为会自动给ID
   });
   //存在数据库那么就把他删除掉
