@@ -3,8 +3,12 @@ var Event=require('mod/event.js')
 var WaterFall=require('mod/waterfall.js')
 var Note=require('mod/note.js').Note
 var currentColor='#AD1E1E'
+var date=''
+
 var addNote=function (){
     var data=$('.mask-content').text()
+    var temp=new Date()
+    date=temp.toString().slice(4,15)
     //if(data==='input here') $('.mask-content').html('');
     $('.add-note').on('click',function(){
         $('.mask').css({'display':'flex'})     
@@ -18,10 +22,13 @@ var addNote=function (){
         $('.mask-content').html('');
         NoteManager.add({  // 在页面添加一个note
             context:userInput,
-            color:currentColor})
+            color:currentColor,
+            date:date,
+        })
         Event.fire('confirm',{  //把新建note的数据上传到服务器
             context:userInput,
-            color:currentColor})
+            color:currentColor,
+            date:date})
         Event.fire('waterfall')
     })
     $('.color').each(function(){

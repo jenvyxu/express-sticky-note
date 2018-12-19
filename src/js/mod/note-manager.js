@@ -14,6 +14,7 @@ var NoteManager=(function(){
                         context:note.text,
                         username:note.username,
                         color:note.color,
+                        date:note.date,
                     })
                 })
                 Event.fire('waterfall')

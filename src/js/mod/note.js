@@ -2,6 +2,7 @@ require('less/note.less');
 var Toast = require('./toast.js').Toast;
 var Event = require('mod/event.js');
 function Note(opts){  // opts{context:userInput,color:currentColor}
+  console.log(opts)
   this.initOpts(opts);
   this.createNote();
   this.setStyle(opts['color']);
@@ -21,11 +22,12 @@ Note.prototype = {
     id: '',   //Note的 id
     $ct: $('#content').length>0?$('#content'):$('body'),  //默认存放 Note 的容器
     context: 'input here' , //Note 的内容  ,
+    date:'',  //创建时间2018-12-19 01:40:07.693 +00:00
   },
 
   initOpts: function (opts) {
     this.opts = $.extend({}, this.defaultOpts, opts||{});
-    console.log(this.opts)
+    //console.log(this.opts)
     if(this.opts.id){
        this.id = this.opts.id;    
     }
@@ -33,7 +35,7 @@ Note.prototype = {
 
   createNote: function () {
     var tpl =`<div class="note">
-              <div class="note-head"><span class="username">
+              <div class="note-head"><span class="date">
               </span><span class="delete">  
               <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-delete"></use>
@@ -41,9 +43,14 @@ Note.prototype = {
               <div class="note-ct" contenteditable="true">
               </div>
               </div>`;
+    var date,temp;       
+    if(this.opts.id){
+      temp=new Date(this.opts.date.slice(0,10)) //'2018-12-19'
+      date=temp.toString().slice(4,15)//"Wed Dec 19 2018 08:00:00 GMT+0800 (中国标准时间)"
+    }     
     this.$note = $(tpl);
     this.$note.find('.note-ct').text(this.opts.context);
-    this.$note.find('.username').text(this.opts.username);
+    this.$note.find('.date').text(this.opts.date);
     this.opts.$ct.append(this.$note);
     if(!this.id)this.$note.css({
       'left':'50%',
@@ -81,7 +88,7 @@ Note.prototype = {
 
     Event.on('confirm',function(data){
       if(!self.id){
-        console.log('data')
+        console.log('newdata')
         console.log(data)
         self.setLayout()
         self.add(data)
@@ -136,7 +143,7 @@ Note.prototype = {
 
   add: function (data){
     var self = this;
-    $.post('/api/notes/add', {note: data.context,color:data.color})
+    $.post('/api/notes/add', {note: data.context,color:data.color,date:data.date})
       .done(function(ret){
         if(ret.status === 0){
           Toast('添加成功');

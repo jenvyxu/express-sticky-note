@@ -8,6 +8,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     .note-head{
+      position: relative;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       height: 35px;
@@ -17,6 +18,15 @@
       line-height: 20px;
       color: #666;
       transition: all 1s;
+      &:after{
+        content: '';
+        display: block;
+        left:5%;
+        width: 90%;
+        height: 100%;
+        position: absolute;
+        border-bottom: 2px solid white;
+      }
       &:hover{
         background-size: 110%;
         
@@ -27,15 +37,26 @@
       }
       
     }
-  
+    .date{
+      position: absolute;
+      top:10px;
+      left:10px;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: hevetica monospace;
+      color: white;
+      font-style: italic;
+      
+    }
     .note-ct{
-      padding: 16px;
+      padding: 10px 12px 30px 12px;
       background-color: #FEFFFE;
       outline: none;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
     }
     .delete {
+      z-index: 2;
       position: absolute;
       display: flex;
       top: 5px;
@@ -46,7 +67,7 @@
       opacity: 0;
       transition: opacity .3s;
       .icon{
-        width: 18px; height: 18px;
+        width: 14px; height: 14px;
         vertical-align: -0.15em;
         fill: currentColor;
         overflow: hidden;

@@ -30,6 +30,9 @@ sequelize
     color: {
       type: Sequelize.STRING
     },
+    date: {
+      type: Sequelize.STRING
+    },
     //不需要ID，因为会自动给ID
   });
   //存在数据库那么就把他删除掉
