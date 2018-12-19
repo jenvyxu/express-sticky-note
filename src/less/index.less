@@ -3,6 +3,7 @@ html,body{
     min-height: 100%;
     min-width: 1000px;
     background: #CBCCCB;
+    font-family: 'SimHei','STHeiti',sans-serif
   }
   ul,li{
     margin: 0;
@@ -24,7 +25,8 @@ html,body{
  }
  .mask{
     display: none;
-    position: absolute;
+    position: fixed;
+    z-index: 3;
     top: 0;
     height: 100vh;
     width: 100%;
@@ -64,7 +66,10 @@ html,body{
         
       }
       .mask-content{
+        word-wrap: break-word;
         border-radius: 4px;
+        border: none;
+        resize: none;
         width: 350px;
         height: 240px;
         background: #eeefee;
@@ -85,7 +90,7 @@ html,body{
             margin: 4px;
           }
           .color1{
-            background: #D92626;           
+            background: #FF666A;           
           }
           .color2{
             background: #0CB7B4;
@@ -117,18 +122,30 @@ html,body{
   }
  
   #header {
-    position: relative;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    width: 100%;
+    min-width: 800px;
     font-size: 14px;
-    background:#F9666D;
+    background:#D94452;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     .webTitle{
-      font-size: 20px;
-      margin: 20px 100px;
-      font-weight: bolder;
+      .logo{
+        display: inline-block;
+        height:40px;
+        width: 40px;
+        background:url('../img/logo.png') center;
+        background-size:cover;
+        margin-right: 16px;
+      }
+      font-size: 24px;
+      margin: 16px 72px;
+
     }
     .icon {
       width: 1.8em; height: 1.8em;
@@ -142,71 +159,77 @@ html,body{
       align-items: center;
       font-size: 14px;
     }
-    
     .user-area {
       margin-right: 100px;
       padding: 6px 14px;
       display: flex;
       align-items: center;
-
-  
       li {
+        color: white;
         span {
-          color: #111C29;
           display: block;
         }
       }
-  li:nth-child(1){
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-  }
-      img {
-        height: 28px;
-        border-radius: 50%;
-      
+      .login-wrapper{
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        background: #d98787;
+        padding: 5px 18px 5px 8px;
+        border-radius: 20px;
+        
       }
-    }
-    li:nth-child(2){
-      border-right: 2px solid black;
-      padding: 0 10px 0 6px;
-      
+      .avatar{
+        display: flex;
+        img {
+          height: 24px;
+          border-radius: 50%;
+        }
+      }
+      .username{
+        margin:0 10px;
+      }         
+      .logout-wrapper{
+        border-left: 2px solid white;
+        padding: 0 10px;    
+        font-family:  sans-serif;
+        a{
+          color:white;
+        }
+      }   
 
     }
-    li:nth-child(3){
-      padding-left: 10px;
-    }
-  
+
     .setting{
       float: right;
       margin-left: 9px;
       display: none;
     }
-
     .login{
       float: right;
     }
-  
-  
-  }
-  
-.add-note{
-  position: absolute;
-  top: 53px;
-  right: 80px;
-  .icon{
-    width: 2em; height: 2em;
-    vertical-align: -0.15em;
-    fill: red;
-    overflow: hidden;
+    .add-note{
+      position: absolute;
+      top: 36px;
+      right: 50px;
+      .icon{
+        border-radius: 50%;
+        background:#D94452;
+        margin: 0px;
+        border-radius: 50%;
+        width: 50px; height: 50px;
+        vertical-align: -0.15em;
+        overflow: hidden;
+      }
+    }
   }
 
-}
 .contentWrapper{
+  margin-top:100px;
 
 }
   #content{
-    margin: 20px 50px;
+    margin: 20px 60px;
     position: relative;
     height: -webkit-calc(100% - 30px);
     height: calc(100vh);
