@@ -11,7 +11,6 @@ router.get('/notes', function(req, res, next) {
     }
   }
   Note.findAll(query).then(function(notes){
-    console.log(notes);
     res.send({status:0,data:notes});
   }).catch(function(){
     res.send({status:1,errorMsg:'数据库出错'})
@@ -25,10 +24,9 @@ router.post('/notes/add', function(req, res, next) {
   var uid=req.session.user.id
   var note=req.body.note
   var color=req.body.color
-  Note.create({text:note,uid:uid,color:color}).then(function(){
-    res.send({status:0})
-    console.log(req.body)
-    console.log('xxxxxxxxxxxxxxxxx')
+  var date=req.body.date
+  Note.create({text:note,uid:uid,color:color,date:date}).then(function(e){
+    res.send({status:0,id:e.dataValues.id})
   }).catch(function(){
     res.send({status:1,errorMsg:'数据库出错'})
   })

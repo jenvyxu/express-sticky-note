@@ -27,9 +27,21 @@ module.exports = {
   ],
   module:{
   	rules:[
+
   	{
   		test:/\.less$/,
   		use:["style-loader","css-loader","less-loader"]
-  	}]
+		},	
+		{
+		   test: /\.(png|svg|jpg|gif)$/,
+		    use: {
+ 					loader:'file-loader',			  
+				 	options: {
+						outputPath: '../images/'
+					}
+				}
+		     
+		  }	
+		]
   }
 };

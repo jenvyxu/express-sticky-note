@@ -1,9 +1,8 @@
 require('less/toast.less')
 var $=require('jquery')
-//构造函数toast
 function toast(msg,time){
 	this.msg=msg
-	this.dismissTime=time||1000
+	this.dismissTime=time||2000
 	this.createToast()
 	this.showToast()
 }

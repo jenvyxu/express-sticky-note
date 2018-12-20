@@ -5,15 +5,11 @@ var passport=require('passport')
 var GitHubStrategy = require('passport-github').Strategy
 //序列化和反序列化
 passport.serializeUser(function(user, done) {
-    console.log('---serialzeUser---')
-    console.log(user)
     done(null, user);
 });   
 passport.deserializeUser(function(obj, done) {
-    console.log('--deserializerUser--')
     done(null, obj);
 });
-
 
 passport.use(new GitHubStrategy({
     clientID: 'f32bddf85687ae36ae44',
@@ -22,7 +18,6 @@ passport.use(new GitHubStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     done(null, profile);
-
 /** 
     User.findOrCreate({ githubId: profile.id }, function (err, user) {
       return cb(err, user);
@@ -30,11 +25,8 @@ passport.use(new GitHubStrategy({
 */
   }
 ));
-
 router.get('/github',
   passport.authenticate('github'));
-console.log(1);
-
 router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {

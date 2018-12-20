@@ -5,8 +5,6 @@ var NoteManager=(function(){
     function load(){
         $.get('/api/notes')
         .done(function(ret){
-            console.log('ret')
-            console.log(ret)
             if(ret.status==0){
                 $.each(ret.data,function(idx,note){
                     new Note({

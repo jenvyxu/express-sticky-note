@@ -12,8 +12,7 @@ var EventCenter=(function(){
         }
         for(var i=0;i<events[evt].length;i++){
             events[evt][i].handler(args)
-        }
-        
+        }      
     }
     return {
             on:on,
