@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var api = require('./routes/api');
 var auth = require('./routes/auth');
@@ -34,9 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/auth',auth)
 app.use('/api', api);//只要请求以/api开头，就交给api处理
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
