@@ -14,15 +14,16 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GitHubStrategy({
     clientID: 'f32bddf85687ae36ae44',
     clientSecret: '04e0c50c49a20a8d498661c5ac3f1a0c6b43d696',
-    callbackURL: "http://www.stickynote.top/auth/github/callback"
+    callbackURL: "http://www.jenvyxu.xyz/auth/github/callback"
   },
+  
   function(accessToken, refreshToken, profile, done) {
     done(null, profile);
-/** 
-    User.findOrCreate({ githubId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-*/
+  /** 
+      User.findOrCreate({ githubId: profile.id }, function (err, user) {
+        return cb(err, user);
+      });
+  */
   }
 ));
 router.get('/github',
