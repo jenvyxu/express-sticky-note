@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "PORT=8080 node ./bin/www",
+    "start": "PORT=80 node ./bin/www",
     "webpack": "webpack --config=src/webpack.config.js",
     "watch": "webpack --watch --config=src/webpack.config.js"
   },
