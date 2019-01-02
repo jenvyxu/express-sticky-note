@@ -72,11 +72,9 @@ Note.prototype = {
     })
 
     Event.on('confirm',function(data){ 
-      console.log(self.id) 
       if(!self.id){
         self.setLayout()
-        self.add(data)   
-        
+        self.add(data)      
       }
     })
     //contenteditable没有 change 事件，所有这里做了模拟通过判断元素内容变动，执行 save
@@ -115,7 +113,7 @@ Note.prototype = {
   edit: function (msg) {
     var self = this;
     $.post('/api/notes/edit',{
-        id: this.defaultOpts.id,
+        id: self.id,
         note: msg
       }).done(function(ret){
       if(ret.status === 0){
@@ -131,7 +129,8 @@ Note.prototype = {
     $.post('/api/notes/add', {note: data.context,color:data.color,date:data.date})
       .done(function(ret){
         if(ret.status === 0){
-          self.defaultOpts.id=ret.id
+          self.id=ret.id
+          console.log(self.defaultOpts.id)
           Toast('添加成功');
         }else{
           self.$note.remove();

@@ -40,6 +40,7 @@ router.post('/notes/edit', function(req, res, next) {
   Note.update({text:req.body.note},{where:{id:req.body.id,uid:uid}}).then(
     function(){
       res.send({status:0})
+      console.log(Note)
     }
   ).catch(function(){
     res.send({status:1,errorMsg:'数据库出错'})

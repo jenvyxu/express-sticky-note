@@ -38,6 +38,6 @@ module.exports.Note=Note
 //raw:true 获取原始数据，去除不必要的信息
 /** 
 Note.findAll({raw:true,where:{id:2}}).then(note => {
-    console.log(note)
-  })
+  console.log(Note)
+})
 */ 
