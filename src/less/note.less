@@ -22,7 +22,6 @@
       transition: all 1s;
       span{
         font-family:  Helvetica,sans-serif;
-        font-weight: bold;
       }
       &:after{
         content: '';
@@ -31,7 +30,7 @@
         width: 90%;
         height: 100%;
         position: absolute;
-        border-bottom: 2px solid white;
+        border-bottom: 1px solid white;
       }
       &:hover{
         background-size: 110%;
@@ -48,11 +47,8 @@
       top:10px;
       left:10px;
       font-size: 16px;
-      font-weight: bold;
       font-family: hevetica monospace;
-      color: white;
-      font-style: italic;
-      
+      color: white;    
     }
     .note-ct{
       word-break: break-all;
@@ -87,6 +83,7 @@
     opacity: 0.8;
     cursor:move;
     transition: none;
+    z-index:3;
   }
 .editting{
   z-index: 1;
